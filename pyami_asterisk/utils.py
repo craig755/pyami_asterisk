@@ -12,7 +12,8 @@ def _convert_bytes_to_dict(data: bytes) -> dict:
                 list_values.append(_.split(": ", 1)[1])
                 respons[_.split(": ", 1)[0]] = list_values
                 continue
-            respons[_.split(": ", 1)[0]] = _.split(": ", 1)[1]
+            if ": " in _: # Added to check there is a "key: value"
+                respons[_.split(": ", 1)[0]] = _.split(": ", 1)[1]
     return respons
 
 
